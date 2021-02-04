@@ -1,0 +1,39 @@
+.calc-keyPad {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 350px;
+    border: 1px solid black;
+}
+
+.calc-keypad .numPad {
+    height: 250px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.numPad .calcRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* height: auto; */
+    width: 250px;
+}
+
+.calcRow .key {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+.key {
+    border: 1px solid black;
+    height: 10px;
+    width: 10px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    align-items: center;
+}
