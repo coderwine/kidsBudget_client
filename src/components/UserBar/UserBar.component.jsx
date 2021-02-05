@@ -22,6 +22,10 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  iconBtn: {
+    position: 'fixed',
+    right: 8,
+  }
 });
 
 
@@ -69,7 +73,7 @@ export default function UserBar() {
   );
 
   return (
-    <div>
+    <div className={classes.iconBtn}>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <AccountCircleRoundedIcon className="profile-icon" fontSize="large" onClick={toggleDrawer(anchor, true)}/>
@@ -87,4 +91,7 @@ export default function UserBar() {
   );
 }
 
-//TODO: Need to build out Link routes to profile/wishlist/help
+/* 
+TODO: 
+  - Need to build out Link routes to profile/wishlist/help
+*/
