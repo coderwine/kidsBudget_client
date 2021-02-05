@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import './Calculator.styles.css';
-import { FormControl, Input, InputLabel, FormGroup, IconButton, TableSortLabel } from '@material-ui/core';
+import { FormControl, Input, InputLabel, FormGroup, IconButton } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
-import { SignalCellularNull } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: `800px`,
       '& > *': {
         margin: theme.spacing(1),
         padding: '.15em',
@@ -29,12 +29,8 @@ export default function Calculator(props) {
     const [ actSaving, setActSaving ] = useState(null);
     const [ actSpending, setActSpending ] = useState(null);
 
-    
-
     function handleSubmit(e) {
         e.preventDefault()
-        // console.log('handle:', e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value)
-        // console.log('DEPOSIT: ', deposit)
 
         let sharing = e.target[1].value / 100;
         let saving = e.target[2].value / 100;
@@ -47,14 +43,12 @@ export default function Calculator(props) {
         setActSharing(calcSharing.toFixed(2));
         setActSaving(calcSaving.toFixed(2));
         setActSpending(calcSpending.toFixed(2));
-        
-        
+                
     }
 
-    // <form onSubmit={e => handleSubmit(e)}>
     return(
     
-    <div clasName={classes.root}>   
+    <div className={classes.root}>   
         <h1>By Percentage: </h1>
         <form onSubmit={handleSubmit}>
         <FormGroup>
@@ -88,15 +82,17 @@ export default function Calculator(props) {
 
         <div className="resultsDisplay">
             <div className="singleResult" id="shareResults">
-                <h3 className="envTitle" >Sharing: {actSharing === null ? `$0` : `$${actSharing}`}</h3>
+                <h2 className="envTitle" >Sharing: {actSharing === null ? `$0` : `$${actSharing}`}</h2>
             </div>
             <div className="singleResult" id="saveResults">
-                <h3 className="envTitle">Saving: {actSaving === null ? `$0` : `$${actSaving}`}</h3>
+                <h2 className="envTitle">Saving: {actSaving === null ? `$0` : `$${actSaving}`}</h2>
             </div>
             <div className="singleResult" id="spendResults">
-                <h3 className="envTitle">Spending: {actSpending === null ? `$0` : `$${actSpending}`}</h3>
+                <h2 className="envTitle">Spending: {actSpending === null ? `$0` : `$${actSpending}`}</h2>
             </div>
         </div>
     </div>
     )
 }
+
+

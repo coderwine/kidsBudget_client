@@ -55,7 +55,7 @@ export default function UserBar() {
             <ListItemIcon>{
                 index === 0 ? <AccountCircleRoundedIcon /> : 
                 index === 1 ? <Link to="/calculator"><ExposureTwoToneIcon /></Link> :
-                index === 2 ? <ListAltTwoToneIcon/> : 
+                index === 2 ? <Link to="/wishlist"><ListAltTwoToneIcon/></Link> : 
                 index === 3 ? <ContactSupportTwoToneIcon /> :
                 <ExitToAppTwoToneIcon /> 
                 }</ListItemIcon>

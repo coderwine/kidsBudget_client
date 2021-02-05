@@ -19,11 +19,12 @@ function App() {
         <UserBar />
       
         <Switch className="displayRoutes">
-          <Route exact path="/" component={HomePage}/>
+          
           <Route path="/sharing" component={SharingPage}/>
           <Route path="/saving" component={SavingsPage}/>
           <Route path="/spending" component={SpendingPage}/>
-          <Route path="/calculator" component={Calculator}/>
+          <Route path="/" component={HomePage}/>
+
         </Switch>
       
       <BottomNav />
@@ -34,3 +35,5 @@ function App() {
 }
 
 export default App;
+
+// <Route path="/home/calculator" component={Calculator}/>
