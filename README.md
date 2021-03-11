@@ -1,8 +1,39 @@
 # TODO:
- - Calculator styling
- - List building
- - Profile build
  - Test Data with varied envelopes.
+  
+- Component Needs:
+ - Bottom Nav
+ - User Nav (sidebar)
+   - Style
+   - Routing 
+ - General Stats
+   - Link Values from Sharing, Savings, and Spending
+   - Style
+ - Sharing
+   - Needs to be Built
+   - Style
+ - Savings
+   - Needs to be Built
+   - Style
+ - Spending
+   - Needs to be Built
+   - Style
+ - Calculator 
+   - styling
+   - State holding for input fields
+     - Percentage placeholders should reflect remaining %
+ - Wish List 
+   - Needs to be Built
+   - Style
+ - Profile
+   - Needs to be Built
+   - Style
+
+GENERAL STYLING FOR DESKTOP/TABLET
+
+# Status:
+ - Home Component may not be required.  Currently inactive.
+ - Bottom Nav is Routing between Overall Stats, Sharing, Savings, and Spending Components correctly. 
 
 # Getting Started with Create React App
 

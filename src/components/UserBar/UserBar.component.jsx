@@ -1,5 +1,7 @@
 import React from 'react';
 import './UserBar.styles.css';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -44,6 +46,7 @@ export default function UserBar() {
   };
 
   const list = (anchor) => (
+    
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
@@ -54,18 +57,21 @@ export default function UserBar() {
     >
       <List>
         {['Profile', 'Calculator','Wish List','Support', 'Logout'].map((text, index) => (
-          <ListItem button key={text}>
-          
-            <ListItemIcon>{
-                index === 0 ? <AccountCircleRoundedIcon /> : 
-                index === 1 ? <Link to="/calculator"><ExposureTwoToneIcon /></Link> :
-                index === 2 ? <Link to="/wishlist"><ListAltTwoToneIcon/></Link> : 
-                index === 3 ? <ContactSupportTwoToneIcon /> :
-                <ExitToAppTwoToneIcon /> 
-                }</ListItemIcon>
-            <ListItemText primary={text} />
 
-          </ListItem>
+          <Link to={`/${text.toLowerCase().replace(' ', '-')}`}>
+            <ListItem button key={text}>
+              <ListItemIcon>{
+                  index === 0 ? <AccountCircleRoundedIcon /> : 
+                  index === 1 ? <ExposureTwoToneIcon /> :
+                  index === 2 ? <ListAltTwoToneIcon/> : 
+                  index === 3 ? <ContactSupportTwoToneIcon /> :
+                  index === 4 ? <ExitToAppTwoToneIcon /> : null
+                  }</ListItemIcon>
+
+                  <ListItemText primary={text} />
+                  
+            </ListItem>
+          </Link>
         ))}
       </List>
       
@@ -73,25 +79,24 @@ export default function UserBar() {
   );
 
   return (
-    <div className={classes.iconBtn}>
-      {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <AccountCircleRoundedIcon className="profile-icon" fontSize="large" onClick={toggleDrawer(anchor, true)}/>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
-    </div>
+    
+    <Router>
+      <div className={classes.iconBtn}>
+        {['right'].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <AccountCircleRoundedIcon className="profile-icon" fontSize="large" onClick={toggleDrawer(anchor, true)}/>
+            <SwipeableDrawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+              onOpen={toggleDrawer(anchor, true)}
+            >
+              {list(anchor)}
+              
+            </SwipeableDrawer>
+          </React.Fragment>
+        ))}
+      </div>
+    </Router>
   );
 }
-
-/* 
-TODO: 
-  - Need to build out Link routes to profile/wishlist/help
-*/

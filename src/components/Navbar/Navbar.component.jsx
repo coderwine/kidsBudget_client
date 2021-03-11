@@ -33,7 +33,7 @@ export default function BottomNav() {
       className={classes.root}
     >
 
-      <Link to='/home'><BottomNavigationAction label="Home" icon={<HomeTwoToneIcon />} /></Link>
+      <Link to='/'><BottomNavigationAction label="Home" icon={<HomeTwoToneIcon />} /></Link>
       <Link to='/sharing'><BottomNavigationAction label="Share" icon={<LoyaltyTwoToneIcon />} /></Link>
       <Link to='/saving'><BottomNavigationAction label="Save" icon={<AccountBalanceTwoToneIcon />} /></Link>
       <Link to='/spending'><BottomNavigationAction label="Spend" icon={<AttachMoneyTwoToneIcon />} /></Link>

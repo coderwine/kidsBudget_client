@@ -42,7 +42,7 @@ export default function HomePage() {
       <div className="displayRoutes">
 
             <Switch>
-              <Route path="/home" component={GenStats} />
+              <Route path="/general-stats" component={GenStats} />
               <Route path="/calculator" component={Calculator} />
               <Route path="/wishlist" component={WishList} />
             </Switch>    
