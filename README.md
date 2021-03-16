@@ -1,21 +1,38 @@
 # TODO:
  - Test Data with varied envelopes.
-  
-- Component Needs:
+ 
+**Component Needs:**
+
  - Bottom Nav
  - User Nav (sidebar)
    - Style
-   - Routing 
+     - Icon match state list of options
+   - Logout sets Auth to false / clears token
+ - App
+   - Started Auth concept. 
+ - Home
+   - Landing Page (no auth)
  - General Stats
    - Link Values from Sharing, Savings, and Spending
+     - General Display
+     - User Display
    - Style
  - Sharing
    - Needs to be Built
+     - General Display
+     - User Display
    - Style
  - Savings
    - Needs to be Built
+     - General Display
+     - User Display
    - Style
  - Spending
+   - Needs to be Built
+     - General Display
+     - User Display 
+   - Style
+ - Profile
    - Needs to be Built
    - Style
  - Calculator 
@@ -28,12 +45,17 @@
  - Profile
    - Needs to be Built
    - Style
+ - About
+   - Needs to be Built
+   - Style
+ - Auth Component 
 
 GENERAL STYLING FOR DESKTOP/TABLET
 
-# Status:
- - Home Component may not be required.  Currently inactive.
- - Bottom Nav is Routing between Overall Stats, Sharing, Savings, and Spending Components correctly. 
+# Project Status:
+ - Auth useState determines Landing (Home Component) or General Stats.
+ - Bottom Nav is Routing between Overall Stats, Sharing, Savings, and Spending Components correctly.
+ - User Nav (drawer) routing between varied components as needed. 
 
 # Getting Started with Create React App
 

@@ -10,12 +10,14 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
+
 //Icons
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExposureTwoToneIcon from '@material-ui/icons/ExposureTwoTone';
 import ListAltTwoToneIcon from '@material-ui/icons/ListAltTwoTone';
 import ContactSupportTwoToneIcon from '@material-ui/icons/ContactSupportTwoTone';
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
+import { LocalDiningOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   list: {
@@ -31,11 +33,18 @@ const useStyles = makeStyles({
 });
 
 
-export default function UserBar() {
+export default function UserBar(props) {
+  console.log('user bar: ', props)
+
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
   });
+
+  // const logoutUser = () => {
+  //   localStorage.clear();
+    
+  // }
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -48,31 +57,46 @@ export default function UserBar() {
   const list = (anchor) => (
     
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      className={clsx(classes.list)}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Profile', 'Calculator','Wish List','Support', 'Logout'].map((text, index) => (
-
+        {props.auth ?
+          ['Profile', 'Calculator','Wish List','The Developer', 'Logout'].map((text, index) => (
           <Link to={`/${text.toLowerCase().replace(' ', '-')}`}>
-            <ListItem button key={text}>
+          <ListItem button key={index}>
+          
               <ListItemIcon>{
                   index === 0 ? <AccountCircleRoundedIcon /> : 
                   index === 1 ? <ExposureTwoToneIcon /> :
                   index === 2 ? <ListAltTwoToneIcon/> : 
                   index === 3 ? <ContactSupportTwoToneIcon /> :
-                  index === 4 ? <ExitToAppTwoToneIcon /> : null
+                  index === 4 ? <ExitToAppTwoToneIcon onClick={props.logout}/> : null
                   }</ListItemIcon>
 
                   <ListItemText primary={text} />
                   
             </ListItem>
           </Link>
-        ))}
+        )) :
+          ['Login', 'The Developer'].map((text, index) => (
+          <Link to={`/${text.toLowerCase().replace(' ', '-')}`}>
+          <ListItem button key={index}>
+          
+              <ListItemIcon>{
+                  index === 0 ? <AccountCircleRoundedIcon /> :
+                  index === 1 ? <ContactSupportTwoToneIcon /> :
+                  null
+                  }</ListItemIcon>
+              
+              <ListItemText primary={text} />
+                  
+            </ListItem>
+          </Link>
+        )) 
+      }
       </List>
       
     </div>
@@ -80,7 +104,6 @@ export default function UserBar() {
 
   return (
     
-    <Router>
       <div className={classes.iconBtn}>
         {['right'].map((anchor) => (
           <React.Fragment key={anchor}>
@@ -97,6 +120,6 @@ export default function UserBar() {
           </React.Fragment>
         ))}
       </div>
-    </Router>
+    
   );
 }
